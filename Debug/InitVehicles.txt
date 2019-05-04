@@ -1,0 +1,4 @@
+Truck(Toyota,Some kind of brand,12.340000,12.340000)
+Truck(Toyota,Some kind of brand2,12.340000,12.340000)
+Train(Cameroon National Railways,100.000000,rails,123,AABCD)
+Truck(Michellin,Toyota,12.100000,300.000000)

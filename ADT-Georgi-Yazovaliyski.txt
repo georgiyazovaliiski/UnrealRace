@@ -1,0 +1,88 @@
+LinkedList
+	LinkedList();
+	LinkedList(Node<T>*);
+	~LinkedList();
+	void push(Node<T>*);
+	void remove(int id);
+	void print();
+	void generateVector(std::vector<T*> &a);
+
+Node
+	Node();
+	Node(T* data);
+	~Node();
+	Node<T>* getNext();
+	Node<T>* getPrev();
+	T* getData();
+	void setData(T* newData);
+	void setNext(Node* newNext);
+	void setPrev(Node* newPrev);
+
+Vehicle
+	Vehicle();
+	Vehicle(std::string brandName, double gasConsumption);
+	~Vehicle();
+	virtual double get_hp() = 0;
+	std::string get_brand_name();
+
+	virtual std::string toString() = 0;
+
+WheelLess
+	WheelLess(std::string brandName, double gasConsumption, std::string movement);
+	~WheelLess();
+	virtual double get_hp() = 0;
+	virtual std::string toString() = 0;
+
+WheelFull
+	WheelFull();
+	WheelFull(std::string tyresName, std::string brandName, double gasConsumption);
+	~WheelFull();
+	virtual double get_hp() = 0;
+	virtual std::string toString() = 0;
+
+Train
+	Train(std::string brandName, double gasConsumption, std::string movement, int amount_passengers_possible, std::string horse_power_code);
+	~Train();
+
+	// Inherited via WheelLess
+	virtual double get_hp() override;
+	std::string toString();
+
+	Truck();
+	Truck(std::string tyresName, std::string brandName, double gasConsumption, double shipment);
+	~Truck();
+
+	// Inherited via WheelFull
+	virtual double get_hp() override;
+	std::string toString();
+
+	double get_shipment();
+
+Car
+	Car();
+	Car(std::string brandName,
+		double gasConsumption, 
+		std::string tyresbrandName, 
+		std::string wbn,
+		double hp);
+	~Car();
+
+	// Inherited via WheelFull
+	virtual double get_hp() override;
+	std::string toString();
+
+VehicleReader
+	VehicleReader();
+	~VehicleReader();
+	void writeInFile(LinkedList<Vehicle>& list);
+	std::string* generateArrayParams(int n, std::string paramString, std::string result[]);
+	Vehicle* parseVehicle(std::string vehiString);
+	void readFromFile(LinkedList<Vehicle> &list);
+	
+	const std::string fileName = "InitVehicles.txt";
+
+
+ALGORITHMS USED
+InsertionSort() - algorithm analytics
+	The best case input is an array that is already sorted. In this case insertion sort has a linear running time (i.e., O(n)). During each iteration, the first 	remaining element of the input is only compared with the right-most element of the sorted subsection of the array.
+	In our case the insertion algorithm in the linkedlist will always have linear time execution, because from the beginning we are adding items one by one, so the 	list is always sorted.
